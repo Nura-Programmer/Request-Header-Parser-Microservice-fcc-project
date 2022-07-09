@@ -1,0 +1,16 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "This is a project to meet the Backend development and API certification at freeCodeCamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fcc",
+    "timstamp",
+    "microservice"
+  ],
+  "author": "Nura Programmer",
+  "license": "ISC"
+}
