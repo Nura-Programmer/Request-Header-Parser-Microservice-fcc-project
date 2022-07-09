@@ -1,5 +1,5 @@
 {
-  "name": "timestamp-microservice",
+  "name": "Timestamp-Microservice-fcc-project",
   "version": "1.0.0",
   "description": "This is a project to meet the Backend development and API certification at freeCodeCamp",
   "main": "index.js",
