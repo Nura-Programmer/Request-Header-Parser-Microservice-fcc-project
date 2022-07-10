@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyPaser.urlencoded({ extended: false }));
-app.use(express.static(__dirname));
+app.use(express.static("public"));
 app.use((req, _, next) => {
   const { method, path, ip } = req;
   const logDetails = `${method} ${path} - ${ip}`;
