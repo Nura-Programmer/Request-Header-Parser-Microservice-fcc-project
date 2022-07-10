@@ -1,10 +1,10 @@
-const bodyPaser = require("body-parser");
+const cors = require("cors");
 const express = require("express");
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use(bodyPaser.urlencoded({ extended: false }));
+app.use(cors({optionsSuccessStatus: 200}));
 app.use(express.static("public"));
 app.use((req, _, next) => {
   const { method, path, ip } = req;
@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 app.get("/api/:date?", (req, res) => {
   let date = req.params.date;
   
-  res.statusCode = 200;
   res.contentType = "application/json";
 
   if (date === undefined) {
