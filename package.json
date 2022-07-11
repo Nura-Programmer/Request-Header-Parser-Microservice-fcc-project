@@ -1,5 +1,5 @@
 {
-  "name": "Timestamp-Microservice-fcc-project",
+  "name": "Request-Header-Parser-Microservice-fcc-project",
   "version": "1.0.0",
   "description": "This is a project to meet the Backend development and API certification at freeCodeCamp",
   "main": "index.js",
@@ -7,9 +7,9 @@
     "start": "node index.js"
   },
   "keywords": [
-    "fcc",
-    "timstamp",
-    "microservice"
+    "Request",
+    "Header",
+    "Parser"
   ],
   "author": "Nura Programmer",
   "license": "ISC",
