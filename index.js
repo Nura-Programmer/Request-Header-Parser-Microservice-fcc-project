@@ -3,7 +3,10 @@ const express = require("express");
 const app = express();
 
 const port = process.env.PORT || 3000;
-const getTheDate = date => ({ unix: Math.floor(date.getTime() / 1000), utc: date.toGMTString() });
+const getTheDate = date => ({
+  unix: date.valueOf(),
+  utc: date.toGMTString()
+});
 
 app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static("public"));
@@ -22,22 +25,17 @@ app.get("/", (_, res) => {
 
 app.get("/api/:date?", (req, res) => {
   let date = req.params.date;
-
   res.contentType = "application/json";
 
-  if (date === undefined) {
-    const currentDate = new Date();
+  if (date === undefined)
+    return res.json(getTheDate(new Date()));
 
-    return res.json(getTheDate(currentDate));
-  }
 
-  date = date.indexOf(",") > -1 ? decodeURIComponent(date) : date.length > 10 ? Number(date) : date;
-
-  console.log(date);
-
-  if (date === NaN) return res.status(400).json({ error: "Invalid Date" });
+  date = date.indexOf(",") > -1 ? decodeURIComponent(date) : date.length > 10 ? parseInt(date) : date;
 
   const gmtDate = new Date(date);
+
+  if (gmtDate == "Invalid Date") return res.status(400).json({ error: "Invalid Date" });
 
   res.json(getTheDate(gmtDate));
 });
